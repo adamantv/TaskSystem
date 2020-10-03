@@ -1,0 +1,23 @@
+
+<div class="container pad-top">
+  <a ng-show="user" ui-sref="newTask" class="btn-primary btn-lg nodecoration">Добавить новую заявку</a>
+  <table class="table entitytable">
+      <tr>
+          <td><h3>Список заявок</h3></td>
+          <td></td>
+      </tr>
+      <tr>
+      	<td><strong>Описание</strong></td>
+      </tr>
+      <tr ng-repeat="task in tasks">
+          <td>{{task.text}}</td>
+          <td>
+              <a href="#btn-mod" class="btn btn-primary" ui-sref="editTask({id:task.id})">Редактировать</a>
+              <a class="btn btn-danger"  ng-click="deleteTask(task)">Удалить</a>
+          </td>
+      </tr>
+  </table>
+  <div class="alert alert-danger margin-top-2" ng-show="message">{{message}}</div>
+</div>
+
+

@@ -1,0 +1,24 @@
+<div class="container pad-top">
+  <a ng-show="user && cancreate" ui-sref="newUser" class="btn-primary btn-lg nodecoration">Добавить нового пользователя</a>
+  <table class="table entitytable">
+      <tr>
+          <td><h3>Список пользователей</h3></td>
+          <td></td>
+      </tr>
+      <tr>
+      	<td><strong>Имя пользователя</strong></td>
+        <td><strong>E-mail</strong></td>
+        <td><strong>Роль</strong></td>
+      </tr>
+      <tr ng-repeat="user in users">
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.role}}</td>
+          <td>
+              <a class="btn btn-primary" ui-sref="editUser({id:user.id})">Редактировать</a>
+              <a class="btn btn-danger"  ng-click="deleteUser(user)">Удалить</a>
+          </td>
+      </tr>
+  </table>
+  <div class="alert alert-danger margin-top-2" ng-show="message">{{message}}</div>
+</div>
